@@ -6,4 +6,6 @@ class User < ApplicationRecord
 
   has_many :memberships
   has_many :programs, through: :memberships
+  has_many :lessons
+  alias_attribute :lessons_taught, :lessons
 end

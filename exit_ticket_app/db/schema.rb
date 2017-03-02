@@ -22,8 +22,10 @@ ActiveRecord::Schema.define(version: 20170301161838) do
     t.time     "start_time"
     t.time     "end_time"
     t.integer  "user_id"
+    t.integer  "program_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["program_id"], name: "index_lessons_on_program_id", using: :btree
     t.index ["user_id"], name: "index_lessons_on_user_id", using: :btree
   end
 

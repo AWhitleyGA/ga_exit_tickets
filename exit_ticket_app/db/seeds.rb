@@ -10,12 +10,12 @@ User.destroy_all
 Program.destroy_all
 
 User.create!([
-  {first_name: "Andy", last_name: "Whitley", email: "andrew.whitley@generalasseb.ly", password: "password", is_producer?: false},
-  {first_name: "Adrian", last_name: "Maseda", email: "adrian.maseda@generalasseb.ly", password: "password", is_producer?: false},
-  {first_name: "Nayana", last_name: "Davis", email: "nayana.davis@generalasseb.ly", password: "password", is_producer?: false},
-  {first_name: "Matt", last_name: "Brems", email: "matt.brems@generalasseb.ly", password: "password", is_producer?: false},
-  {first_name: "Joe", last_name: "Nelson", email: "joseph.nelson@generalasseb.ly", password: "password", is_producer?: false},
-  {first_name: "Ritika", last_name: "Bhasker", email: "ritika.bhasker@generalasseb.ly", password: "password", is_producer?: false},
+  {first_name: "Andy", last_name: "Whitley", email: "andrew.whitley@generalassemb.ly", password: "password", is_producer?: false},
+  {first_name: "Adrian", last_name: "Maseda", email: "adrian.maseda@generalassemb.ly", password: "password", is_producer?: false},
+  {first_name: "Nayana", last_name: "Davis", email: "nayana.davis@generalassemb.ly", password: "password", is_producer?: false},
+  {first_name: "Matt", last_name: "Brems", email: "matt.brems@generalassemb.ly", password: "password", is_producer?: false},
+  {first_name: "Joe", last_name: "Nelson", email: "joseph.nelson@generalassemb.ly", password: "password", is_producer?: false},
+  {first_name: "Ritika", last_name: "Bhasker", email: "ritika.bhasker@generalassemb.ly", password: "password", is_producer?: false},
   {first_name: "Phil", last_name: "Ahn", email: "philip.ahn@generalassemb.ly", password: "password", is_producer?: true}
 ])
 

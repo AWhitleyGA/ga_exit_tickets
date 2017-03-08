@@ -7,4 +7,7 @@ Rails.application.routes.draw do
       resources :surveys
     end
   end
+
+  root to: 'programs#index'
+
 end

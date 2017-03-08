@@ -1,0 +1,12 @@
+<div>
+  <h2>Active Programs</h2>
+  <% @active_programs.each do |program| %>
+    <h4><%= program.name %></h4>
+  <% end %>
+</div>
+<div>
+  <h2>Previous Programs</h2>
+  <% @inactive_programs.each do |program| %>
+    <h4><%= program.name %></h4>
+  <% end %>
+</div>

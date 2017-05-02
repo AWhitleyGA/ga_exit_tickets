@@ -1,0 +1,22 @@
+<section>
+  <h2><%= @program.name %></h2>
+  <p><%= @program.location %></p>
+  <p>
+    <% if @program.is_active? %>
+      <p class="green">Active</p>
+    <% else %>
+      <p class="red">Inactive</p>
+    <% end %>
+  </p>
+</section>
+<h3>Lessons</h3>
+<section>
+  <% @lessons.each do |lesson| %>
+    <div>
+      <h4>
+        <%= lesson.name %>
+        <%= lesson.avg_rating %>
+      </h4>
+    </div>
+  <% end %>
+</section>

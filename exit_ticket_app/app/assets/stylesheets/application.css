@@ -13,3 +13,38 @@
  *= require_tree .
  *= require_self
  */
+
+ *{
+    margin:0;
+    padding:0;
+    border:0;
+    font-size:inherit;
+    font-style:inherit;
+    font-weight:inherit;
+    text-decoration:none;
+    color:inherit;
+    background-color:transparent;
+    list-style-type:none;
+  }
+  *:focus{
+    outline:0
+  }
+  div{
+    position:relative;
+  }
+  a[href], button, label, input[type=submit], label{
+    cursor:pointer;
+  }
+  .notext{
+    font-size:0;
+  }
+  .fa:before{
+    font-size:1rem !important;
+  }
+
+ .todos-chart div{
+   padding:.5em;
+   background:#444;
+   color:#fff;
+   margin-bottom:.5em;
+ }

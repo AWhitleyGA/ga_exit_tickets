@@ -3,25 +3,21 @@
   <head>
     <title>ExitTicketApp</title>
     <%= csrf_meta_tags %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= favicon_link_tag 'favicon.png' %>
   </head>
-  <nav>
-    <div>
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
-    </div>
-    <div>
-      <h2>GA Exit Tickets</h2>
-    </div>
-    <div>
+  <body>
+    <nav class="site-wide">
+    <h1><%= link_to root_path do %><span class="logo">GA </span>Exit Tickets<% end %></h1>
+      <span class="separate"></span>
       <% if current_user %>
+        <%= link_to current_user.email, root_path %>
         <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
       <% end %>
-    </div>
-  </nav>
-  <body>
-    <%= yield %>
+    </nav>
+    <main>
+      <%= yield %>
+    </main>
   </body>
 </html>

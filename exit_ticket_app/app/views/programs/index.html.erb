@@ -1,12 +1,14 @@
-<div>
-  <h2>Active Programs</h2>
-  <% @active_programs.each do |program| %>
-    <p><%= link_to program.name, program_path(program) %></p>
-  <% end %>
-</div>
-<div>
-  <h2>Previous Programs</h2>
-  <% @inactive_programs.each do |program| %>
-    <p><%= link_to program.name, program_path(program) %></p>
-  <% end %>
-</div>
+<main>
+  <div>
+    <h2>Active Programs</h2>
+    <% @active_programs.each do |program| %>
+      <p><%= link_to program.name, program_path(program) %></p>
+    <% end %>
+  </div>
+  <div>
+    <h2>Previous Programs</h2>
+    <% @inactive_programs.each do |program| %>
+      <p><%= link_to program.name, program_path(program) %></p>
+    <% end %>
+  </div>
+</main>

@@ -1,0 +1,6 @@
+<%= link_to program_lesson_path(@program, lesson), class: "lesson-row" do %>
+<div><%= lesson.date %></div>
+<div><%= lesson.name %></div>
+<div <%= color_of(lesson.avg_rating) %>><%= lesson.avg_rating %></div>
+<div><%= lesson.instructor.first_name %> <%= lesson.instructor.last_name %></div>
+<% end %>

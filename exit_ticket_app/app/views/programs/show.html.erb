@@ -1,22 +1,25 @@
-<section>
-  <h2><%= @program.name %></h2>
-  <p><%= @program.location %></p>
-  <p>
+<main class="program-show">
+  <section class="program-info">
+    <h2><%= @program.name %></h2>
+    <p><%= @program.location %></p>
     <% if @program.is_active? %>
       <p class="green">Active</p>
     <% else %>
       <p class="red">Inactive</p>
     <% end %>
-  </p>
-</section>
-<h3>Lessons</h3>
-<section>
-  <% @lessons.each do |lesson| %>
-    <div>
-      <h4>
-        <%= lesson.name %>
-        <%= lesson.avg_rating %>
-      </h4>
+  </section>
+  <section class="lesson-gallery">
+    <h3>Lessons <%= link_to "(+)", new_program_lesson_path(@program) %></h3>
+    <div class="lesson-table">
+      <div class="lesson-header">
+        <div>Date</div>
+        <div>Lesson</div>
+        <div>Average Rating</div>
+        <div>Instructor</div>
+      </div>
+      <% @lessons.each do |lesson| %>
+        <%= render partial: "lesson_row", locals: {lesson: lesson} %>
+      <% end %>
     </div>
-  <% end %>
-</section>
+  </section>
+</main>

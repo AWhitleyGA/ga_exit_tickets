@@ -1,0 +1,58 @@
+$font-body: "News706", Georgia, serif;
+$font-logo: "PFDinTextCompProBold", Impact, sans-serif;
+$font-sans: "Circular", Helvetica, sans-serif;
+$ga-red: #fa4542;
+$ga-red-med: #f6201d;
+$ga-red-dark: #be0201;
+$ga-yellow: #fbd334;
+$ga-yellow-light: #fdeba3;
+$ga-yellow-dark: #f49102;
+$ga-teal: #18bfbc;
+$ga-teal-light: #65e2c5;
+$mobile: "(max-width:600px)";
+
+
+
+.program-show {
+  display: flex;
+}
+
+.program-info {
+  flex: 0 0 350px;
+}
+
+.lesson-gallery {
+  flex: 1 1 auto;
+}
+
+.lesson-row {
+  display: flex;
+  justify-content: space-between;
+  margin: 3px;
+  border: 2px solid #ccc;
+  div {
+    width: 25%;
+    border-width: 0 2px;
+    border-color: #ccc;
+    padding: 20px;
+    text-align: center;
+  }
+  &:hover {
+    background: #ddd;
+  }
+}
+
+.lesson-header {
+  display: flex;
+  justify-content: space-between;
+  margin: 3px;
+  border: 2px solid #222;
+  background: #222;
+  color: #fff;
+  div {
+    padding: 20px;
+    font-size: 1.2em;
+    width: 25%;
+    text-align: center;
+  }
+}

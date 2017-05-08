@@ -55,10 +55,10 @@ ActiveRecord::Schema.define(version: 20170301161838) do
     t.string   "positive_comment"
     t.string   "negative_comment"
     t.string   "general_comment"
-    t.boolean  "attended_office_hours?"
+    t.boolean  "attended_office_hours"
     t.integer  "lesson_id"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
     t.index ["lesson_id"], name: "index_surveys_on_lesson_id", using: :btree
   end
 

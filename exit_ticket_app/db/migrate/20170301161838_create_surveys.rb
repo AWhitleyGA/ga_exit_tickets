@@ -8,7 +8,7 @@ class CreateSurveys < ActiveRecord::Migration[5.0]
       t.string :positive_comment
       t.string :negative_comment
       t.string :general_comment
-      t.boolean :attended_office_hours?
+      t.boolean :attended_office_hours
       t.references :lesson
       t.timestamps
     end

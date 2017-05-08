@@ -1,0 +1,11 @@
+<%= link_to program_lesson_survey_path(@program, @lesson, survey), class: "survey-row" do %>
+  <div><%= survey.respondent_name %></div>
+  <div <%= color_of(survey.lo_rating) %>><%= survey.lo_rating %></div>
+  <div <%= color_of(survey.delivery_rating) %>><%= survey.delivery_rating %></div>
+  <div <%= color_of(survey.comfort_rating) %>><%= survey.comfort_rating %></div>
+  <div>
+    <% if survey.attended_office_hours? %>
+      &check;
+    <% end %>
+  </div>
+<% end %>

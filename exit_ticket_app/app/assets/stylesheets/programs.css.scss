@@ -13,20 +13,20 @@ $mobile: "(max-width:600px)";
 
 
 
-.lesson-show {
+.program-show {
   display: flex;
 }
 
-.lesson-info {
+.program-info {
   flex: 0 0 350px;
   margin: 0 30px 0 0;
 }
 
-.survey-gallery {
+.lesson-gallery {
   flex: 1 1 auto;
 }
 
-.survey-row {
+.lesson-row {
   display: flex;
   justify-content: space-between;
   margin: 3px;
@@ -43,7 +43,7 @@ $mobile: "(max-width:600px)";
   }
 }
 
-.survey-header {
+.lesson-header {
   display: flex;
   justify-content: space-between;
   margin: 3px;
@@ -56,19 +56,4 @@ $mobile: "(max-width:600px)";
     width: 25%;
     text-align: center;
   }
-}
-
-.average-header {
-  padding: 20px;
-  font-size: 1.2em;
-  text-align: center;
-  background: #222;
-  color: #fff;
-  margin: 0 100px 0 0;
-}
-
-.average-row {
-  padding: 20px;
-  text-align: center;
-  margin: 0 100px 0 0;
 }

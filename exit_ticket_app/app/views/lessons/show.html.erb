@@ -1,0 +1,28 @@
+<main class="lesson-show">
+  <section class="lesson-info">
+    <h2><%= @lesson.number %>. <%= @lesson.name %></h2>
+    <p><%= @lesson.date %>, <%= @lesson.start_time %> - <%= @lesson.end_time %></p>
+    <p>Instructor: <%= @instructor.first_name %> <%= @instructor.last_name %></p>
+    <div class="average-header">Learning Objectives Rating</div>
+    <div class="average-row" <%= color_of(@avg_lo_rating) %>><%= @avg_lo_rating %></div>
+    <div class="average-header">Delivery Rating</div>
+    <div class="average-row" <%= color_of(@avg_delivery_rating) %>><%= @avg_delivery_rating %></div>
+    <div class="average-header">Comfort Rating</div>
+    <div class="average-row" <%= color_of(@avg_comfort_rating) %>><%= @avg_comfort_rating %></div>
+  </section>
+  <section class="survey-gallery">
+    <h3>Survey Responses <%= link_to "(+)", new_program_lesson_survey_path(@program, @lesson) %></h3>
+    <div class="survey-table">
+      <div class="survey-header">
+        <div>Respondent</div>
+        <div>Learning Objectives</div>
+        <div>Delivery</div>
+        <div>Comfort</div>
+        <div>Office Hours Attended</div>
+      </div>
+      <% @surveys.each do |survey| %>
+        <%= render partial: "survey_row", locals: {survey: survey}%>
+      <% end %>
+  </div>
+  </section>
+</main>

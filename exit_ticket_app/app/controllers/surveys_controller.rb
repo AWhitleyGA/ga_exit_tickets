@@ -10,6 +10,8 @@ class SurveysController < ApplicationController
     @program = Program.find(params[:program_id])
     @lesson = @program.lessons.find(params[:lesson_id])
     @survey = @lesson.surveys.create!(survey_params)
+
+    render :confirm
   end
 
   private

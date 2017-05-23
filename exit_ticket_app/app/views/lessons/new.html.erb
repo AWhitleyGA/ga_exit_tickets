@@ -1,0 +1,28 @@
+<main>
+  <div>
+    <% if @lesson.errors.full_messages.any? %>
+      <% @user.errors.full_messages.each do |error_message| %>
+        <p><%= error_message %></p>
+      <% end %>
+    <% end %>
+  </div>
+  <%= form_for [@program, @lesson] do |f| %>
+    <%= f.label "Lesson Number" %>
+    <%= f.number_field :number, value: @suggested_lesson_number %>
+
+    <%= f.label "Lesson Name" %>
+    <%= f.text_field :name %>
+
+    <%= f.label "Lesson Date" %>
+    <%= f.date_field :date %>
+
+    <%= f.label "Lesson Start Time" %>
+    <%= f.time_field :start_time %>
+
+    <%= f.label "Lesson End Time" %>
+    <%= f.time_field :end_time %>
+
+    <br />
+    <%= f.submit "Add Lesson" %>
+  <% end %>
+</main>

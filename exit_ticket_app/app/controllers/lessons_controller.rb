@@ -5,20 +5,49 @@ class LessonsController < ApplicationController
     @surveys = @lesson.surveys
     @instructor = @lesson.instructor
 
-    sum_lo = @surveys.reduce(0) do |acc, survey|
-      acc + survey.lo_rating
-    end
-    @avg_lo_rating = sum_lo.to_f / @surveys.length
+    if @surveys.length > 0
+      sum_lo = @surveys.reduce(0) do |acc, survey|
+        acc + survey.lo_rating
+      end
+      @avg_lo_rating = sum_lo.to_f / @surveys.length
 
-    sum_delivery = @surveys.reduce(0) do |acc, survey|
-      acc + survey.delivery_rating
-    end
-    @avg_delivery_rating = sum_delivery.to_f / @surveys.length
+      sum_delivery = @surveys.reduce(0) do |acc, survey|
+        acc + survey.delivery_rating
+      end
+      @avg_delivery_rating = sum_delivery.to_f / @surveys.length
 
-    sum_comfort = @surveys.reduce(0) do |acc, survey|
-      acc + survey.comfort_rating
+      sum_comfort = @surveys.reduce(0) do |acc, survey|
+        acc + survey.comfort_rating
+      end
+      @avg_comfort_rating = sum_comfort.to_f / @surveys.length
+    else
+      @avg_lo_rating = 0
+      @avg_delivery_rating = 0
+      @avg_comfort_rating = 0
     end
-    @avg_comfort_rating = sum_comfort.to_f / @surveys.length
 
+  end
+
+  def new
+    @program = Program.find(params[:program_id])
+    @lesson = @program.lessons.new
+    @suggested_lesson_number = @program.lessons.length
+  end
+
+  def create
+    @program = Program.find(params[:program_id])
+    @lesson = @program.lessons.new(lesson_params)
+    @lesson.user = current_user
+    if @lesson.save
+      redirect_to program_lesson_path(@program, @lesson)
+    else
+      render :new
+    end
+  end
+
+  private
+
+  def lesson_params
+    params.require(:lesson).permit(:number, :name, :date, :start_time, :end_time)
   end
 end

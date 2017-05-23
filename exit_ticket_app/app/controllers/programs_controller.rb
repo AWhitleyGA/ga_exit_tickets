@@ -17,7 +17,11 @@ class ProgramsController < ApplicationController
       sum_ratings = lesson.surveys.reduce(0) do |acc, survey|
         acc + ((survey.lo_rating + survey.delivery_rating + survey.comfort_rating) / 3)
       end
-      lesson[:avg_rating] = sum_ratings.to_f / lesson.surveys.length
+      if lesson.surveys.length > 0
+        lesson[:avg_rating] = (sum_ratings.to_f / lesson.surveys.length).round(1)
+      else
+        lesson[:avg_rating] = 0
+      end
       lesson
     end
     if !current_user.programs.include?(@program)

@@ -1,7 +1,7 @@
 class CreateSurveys < ActiveRecord::Migration[5.0]
   def change
     create_table :surveys do |t|
-      t.string :respondent_name, default: "Anonymous", null: false
+      t.string :respondent_name
       t.integer :lo_rating, null: false
       t.integer :delivery_rating, null: false
       t.integer :comfort_rating, null: false

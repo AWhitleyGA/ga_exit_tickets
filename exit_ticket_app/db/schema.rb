@@ -16,14 +16,14 @@ ActiveRecord::Schema.define(version: 20170301161838) do
   enable_extension "plpgsql"
 
   create_table "lessons", force: :cascade do |t|
-    t.integer  "number"
-    t.string   "name"
-    t.date     "date"
-    t.time     "start_time"
-    t.time     "end_time"
+    t.integer  "number",     null: false
+    t.string   "name",       null: false
+    t.date     "date",       null: false
+    t.time     "start_time", null: false
+    t.time     "end_time",   null: false
     t.decimal  "avg_rating"
-    t.integer  "user_id"
-    t.integer  "program_id"
+    t.integer  "user_id",    null: false
+    t.integer  "program_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["program_id"], name: "index_lessons_on_program_id", using: :btree
@@ -40,23 +40,23 @@ ActiveRecord::Schema.define(version: 20170301161838) do
   end
 
   create_table "programs", force: :cascade do |t|
-    t.string   "name"
-    t.string   "location"
-    t.boolean  "is_active?"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "name",                      null: false
+    t.string   "location",                  null: false
+    t.boolean  "is_active?", default: true
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
   end
 
   create_table "surveys", force: :cascade do |t|
     t.string   "respondent_name"
-    t.integer  "lo_rating"
-    t.integer  "delivery_rating"
-    t.integer  "comfort_rating"
+    t.integer  "lo_rating",             null: false
+    t.integer  "delivery_rating",       null: false
+    t.integer  "comfort_rating",        null: false
     t.string   "positive_comment"
     t.string   "negative_comment"
     t.string   "general_comment"
-    t.boolean  "attended_office_hours"
-    t.integer  "lesson_id"
+    t.boolean  "attended_office_hours", null: false
+    t.integer  "lesson_id",             null: false
     t.datetime "created_at",            null: false
     t.datetime "updated_at",            null: false
     t.index ["lesson_id"], name: "index_surveys_on_lesson_id", using: :btree

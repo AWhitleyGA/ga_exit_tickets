@@ -1,0 +1,37 @@
+.survey-show {
+  display: flex;
+}
+
+.survey-info {
+  flex: 0 0 350px;
+  margin: 0 30px 0 0;
+}
+
+.survey-detail {
+  flex: 1 1 auto;
+}
+
+.survey-detail-row {
+  margin: 20px;
+  display: flex;
+  &>div {
+    padding: 20px;
+    flex: 1 0 0;
+    text-align: center;
+  }
+  .survey-detail-header {
+    background: #222;
+    color: #fff;
+    flex: 0 0 300px;
+  }
+}
+
+.column-content {
+  flex-direction: column;
+  .survey-detail-header {
+    flex: 1 0 auto;
+  }
+  &>div {
+    background: #fff;
+  }
+}

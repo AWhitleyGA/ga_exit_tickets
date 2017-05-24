@@ -1,4 +1,12 @@
 class SurveysController < ApplicationController
+
+  def show
+    @program = Program.find(params[:program_id])
+    @lesson = @program.lessons.find(params[:lesson_id])
+    @survey = @lesson.surveys.find(params[:id])
+    @instructor = @lesson.instructor
+  end
+
   def new
     @program = Program.find(params[:program_id])
     @lesson = @program.lessons.find(params[:lesson_id])

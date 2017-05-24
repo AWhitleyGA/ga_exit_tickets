@@ -1,0 +1,35 @@
+<main class="survey-show">
+  <section class="survey-info">
+    <h2><%= @lesson.number %>. <%= @lesson.name %></h2>
+    <p><%= @lesson.date %>, <%= @lesson.start_time %> - <%= @lesson.end_time %></p>
+    <p>Instructor: <%= @instructor.first_name %> <%= @instructor.last_name %></p>
+    <p>Respondent: <%= @survey.respondent_name %></p>
+    <p>Attended Office Hours this Week?: <strong><%= @survey.attended_office_hours ? "Yes" : "No" %></strong></p>
+  </section>
+  <section class="survey-detail">
+    <div class="survey-detail-row">
+      <div class="survey-detail-header">Learning Objectives Rating</div>
+      <div <%= color_of(@survey.lo_rating) %>><%= @survey.lo_rating %></div>
+    </div>
+    <div class="survey-detail-row">
+      <div class="survey-detail-header">Delivery Rating</div>
+      <div <%= color_of(@survey.delivery_rating) %>><%= @survey.delivery_rating %></div>
+    </div>
+    <div class="survey-detail-row">
+      <div class="survey-detail-header">Comfort Rating</div>
+      <div <%= color_of(@survey.comfort_rating) %>><%= @survey.comfort_rating %></div>
+    </div>
+    <div class="survey-detail-row column-content">
+      <div class="survey-detail-header">Positive Comments</div>
+      <div><%= @survey.positive_comment %></div>
+    </div>
+    <div class="survey-detail-row column-content">
+      <div class="survey-detail-header">Negative Comments</div>
+      <div><%= @survey.negative_comment %></div>
+    </div>
+    <div class="survey-detail-row column-content">
+      <div class="survey-detail-header">General Comments</div>
+      <div><%= @survey.general_comment %></div>
+    </div>
+  </section>
+</main>

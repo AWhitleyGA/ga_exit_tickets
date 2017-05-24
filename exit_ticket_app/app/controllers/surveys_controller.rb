@@ -14,12 +14,20 @@ class SurveysController < ApplicationController
   end
 
   def create
-    puts params
     @program = Program.find(params[:program_id])
     @lesson = @program.lessons.find(params[:lesson_id])
-    @survey = @lesson.surveys.create!(survey_params)
+    @survey = @lesson.surveys.new(survey_params)
+    if @survey.respondent_name == ""
+      @survey.respondent_name = "Anonymous"
+    end
 
-    render :confirm
+    puts @survey.attended_office_hours
+    if @survey.save
+      render :confirm
+    else
+      render :new
+    end
+
   end
 
   private

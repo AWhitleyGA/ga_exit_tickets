@@ -1,44 +1,51 @@
 <main>
-<%= form_for [@program, @lesson, @survey] do |f| %>
-  <%= f.label "Please Enter Your Name"  %>
-  <%= f.text_field :respondent_name %>
-
-  <%= f.label "LO RATING"  %>
-  <% 10.times do |i|%>
-    <%= f.radio_button :lo_rating, i + 1, id: "lo-rating-#{i + 1}" %>
-    <%= f.label :lo_rating, i + 1, for: "lo-rating-#{i + 1}" %>
+  <% if @survey.errors.full_messages.any? %>
+    <div>
+      <% @survey.errors.full_messages.each do |error_message| %>
+        <p><%= error_message %></p>
+      <% end %>
+    </div>
   <% end %>
+  <%= form_for [@program, @lesson, @survey] do |f| %>
+    <%= f.label "Please Enter Your Name"  %>
+    <%= f.text_field :respondent_name %>
 
-  <%= f.label "DELIVERY RATING"  %>
-  <% 10.times do |i|%>
-    <%= f.radio_button :delivery_rating, i + 1, id: "delivery-rating-#{i + 1}" %>
-    <%= f.label :delivery_rating, i + 1, for: "delivery-rating-#{i + 1}" %>
+    <%= f.label "LO RATING"  %>
+    <% 10.times do |i|%>
+      <%= f.radio_button :lo_rating, i + 1, id: "lo-rating-#{i + 1}" %>
+      <%= f.label :lo_rating, i + 1, for: "lo-rating-#{i + 1}" %>
+    <% end %>
+
+    <%= f.label "DELIVERY RATING"  %>
+    <% 10.times do |i|%>
+      <%= f.radio_button :delivery_rating, i + 1, id: "delivery-rating-#{i + 1}" %>
+      <%= f.label :delivery_rating, i + 1, for: "delivery-rating-#{i + 1}" %>
+    <% end %>
+
+    <%= f.label "COMFORT RATING"  %>
+    <% 10.times do |i|%>
+      <%= f.radio_button :comfort_rating, i + 1, id: "comfort-rating-#{i + 1}" %>
+      <%= f.label :comfort_rating, i + 1, for: "comfort-rating-#{i + 1}" %>
+    <% end %>
+
+    <%= f.label "POSITIVE COMMENT" %>
+    <%= f.text_area :positive_comment %>
+
+    <%= f.label "NEGATIVE COMMENT" %>
+    <%= f.text_area :negative_comment %>
+
+    <%= f.label "GENERAL COMMENT" %>
+    <%= f.text_area :general_comment %>
+
+    <%= f.label "ATTENDED OFFICE HOURS" %>
+    <%= f.radio_button :attended_office_hours, true, id: "office-hours-true" %>
+    <%= f.label :attended_office_hours, "Yes", for: "office-hours-true" %>
+    <%= f.radio_button :attended_office_hours, false, id: "office-hours-false" %>
+    <%= f.label :attended_office_hours, "No", for: "office-hours-false" %>
+
+    <br>
+    <%= f.submit "Submit Exit Ticket" %>
+
   <% end %>
-
-  <%= f.label "COMFORT RATING"  %>
-  <% 10.times do |i|%>
-    <%= f.radio_button :comfort_rating, i + 1, id: "comfort-rating-#{i + 1}" %>
-    <%= f.label :comfort_rating, i + 1, for: "comfort-rating-#{i + 1}" %>
-  <% end %>
-
-  <%= f.label "POSITIVE COMMENT" %>
-  <%= f.text_area :positive_comment %>
-
-  <%= f.label "NEGATIVE COMMENT" %>
-  <%= f.text_area :negative_comment %>
-
-  <%= f.label "GENERAL COMMENT" %>
-  <%= f.text_area :general_comment %>
-
-  <%= f.label "ATTENDED OFFICE HOURS" %>
-  <%= f.radio_button :attended_office_hours, true, id: "office-hours-true" %>
-  <%= f.label :attended_office_hours, "Yes", for: "office-hours-true" %>
-  <%= f.radio_button :attended_office_hours, false, id: "office-hours-false" %>
-  <%= f.label :attended_office_hours, "No", for: "office-hours-false" %>
-
-  <br>
-  <%= f.submit "Submit Exit Ticket" %>
-
-<% end %>
 
 </main>

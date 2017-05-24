@@ -107,6 +107,6 @@ Lesson.all.each do |lesson|
     {respondent_name: "Duke Ellington", lo_rating: rand(1..10), delivery_rating: rand(1..10), comfort_rating: rand(1..10), positive_comment: positive_comments.sample, negative_comment: negative_comments.sample, general_comment: general_comments.sample, attended_office_hours: [true, false].sample},
     {respondent_name: "Marvin Gaye", lo_rating: rand(1..10), delivery_rating: rand(1..10), comfort_rating: rand(1..10), positive_comment: positive_comments.sample, negative_comment: negative_comments.sample, general_comment: nil, attended_office_hours: [true, false].sample},
     {respondent_name: "Euphemia Hayes", lo_rating: rand(1..10), delivery_rating: rand(1..10), comfort_rating: rand(1..10), positive_comment: positive_comments.sample, negative_comment: negative_comments.sample, general_comment: general_comments.sample, attended_office_hours: [true, false].sample},
-    {respondent_name: nil, lo_rating: rand(1..10), delivery_rating: rand(1..10), comfort_rating: rand(1..10), positive_comment: positive_comments.sample, negative_comment: negative_comments.sample, general_comment: nil, attended_office_hours: [true, false].sample}
+    {respondent_name: "Anonymous", lo_rating: rand(1..10), delivery_rating: rand(1..10), comfort_rating: rand(1..10), positive_comment: positive_comments.sample, negative_comment: negative_comments.sample, general_comment: nil, attended_office_hours: [true, false].sample}
   ])
 end

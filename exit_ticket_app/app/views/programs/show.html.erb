@@ -4,7 +4,7 @@
     <h3><%= @program.location %></h3>
     <h3>Instructors:</h3>
     <% @instructors.each do |instructor| %>
-      <p><%= instructor.first_name %> <%= instructor.last_name %></p>
+      <p><%= instructor.name %></p>
     <% end %>
     <h3>Status:</h3>
     <% if @program.is_active? %>

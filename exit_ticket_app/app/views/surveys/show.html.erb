@@ -2,7 +2,7 @@
   <section class="survey-info">
     <h2><%= @lesson.number %>. <%= @lesson.name %></h2>
     <p><%= @lesson.date %>, <%= @lesson.start_time %> - <%= @lesson.end_time %></p>
-    <p>Instructor: <%= @instructor.first_name %> <%= @instructor.last_name %></p>
+    <p>Instructor: <%= @instructor.name %></p>
     <p>Respondent: <%= @survey.respondent_name %></p>
     <p>Attended Office Hours this Week?: <strong><%= @survey.attended_office_hours ? "Yes" : "No" %></strong></p>
   </section>

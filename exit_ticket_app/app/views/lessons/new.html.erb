@@ -23,7 +23,7 @@
     <%= f.time_field :end_time %>
 
     <%= f.label "Instructor" %>
-    <%= f.collection_select :user_id, @instructors, :id, :last_name %>
+    <%= f.collection_select :user_id, @instructors, :id, :name %>
     <br />
     <%= f.submit "Add Lesson" %>
   <% end %>

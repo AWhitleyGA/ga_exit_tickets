@@ -32,12 +32,14 @@ class LessonsController < ApplicationController
     @program = Program.find(params[:program_id])
     @lesson = @program.lessons.new
     @suggested_lesson_number = @program.lessons.length
+    @instructors = @program.users.select do |user|
+      !user.is_producer?
+    end
   end
 
   def create
     @program = Program.find(params[:program_id])
     @lesson = @program.lessons.new(lesson_params)
-    @lesson.user = current_user
     if @lesson.save
       redirect_to program_lesson_path(@program, @lesson)
     else
@@ -48,6 +50,6 @@ class LessonsController < ApplicationController
   private
 
   def lesson_params
-    params.require(:lesson).permit(:number, :name, :date, :start_time, :end_time)
+    params.require(:lesson).permit(:number, :name, :date, :start_time, :end_time, :user_id)
   end
 end

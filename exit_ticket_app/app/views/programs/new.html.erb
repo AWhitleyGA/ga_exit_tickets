@@ -1,0 +1,11 @@
+<main>
+  <%= form_for @program do |f| %>
+    <%= f.label "Program Name" %>
+    <%= f.text_field :name %>
+
+    <%= f.label "Program Location" %>
+    <%= f.text_field :location %>
+
+    <%= f.submit "Create Program" %>
+  <% end %>
+</main>

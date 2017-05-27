@@ -13,6 +13,9 @@ class ProgramsController < ApplicationController
 
   def show
     @program = Program.find(params[:id])
+    @instructors = @program.users.select do |user|
+      !user.is_producer?
+    end
     @lessons = @program.lessons.map do |lesson|
       sum_ratings = lesson.surveys.reduce(0) do |acc, survey|
         acc + ((survey.lo_rating + survey.delivery_rating + survey.comfort_rating) / 3)
@@ -24,10 +27,23 @@ class ProgramsController < ApplicationController
       end
       lesson
     end
-    if !current_user.programs.include?(@program)
+    if !current_user.is_producer? && !current_user.programs.include?(@program)
       flash[:alert] = "You do not have access to this program"
       redirect_to programs_path
     end
   end
 
+  def new
+    @program = Program.new
+  end
+
+  def create
+
+  end
+
+  private
+
+  def program_params
+    params.require(:program).permit(:name, :location)
+  end
 end

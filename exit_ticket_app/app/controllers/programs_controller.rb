@@ -38,7 +38,12 @@ class ProgramsController < ApplicationController
   end
 
   def create
-
+    @program = Program.new(program_params)
+    if @program.save
+      redirect_to program_path(@program)
+    else
+      render :new
+    end
   end
 
   private

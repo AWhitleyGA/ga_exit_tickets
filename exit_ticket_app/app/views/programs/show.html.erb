@@ -10,7 +10,9 @@
       <p class="red"><strong>Inactive</strong></p>
     <% end %>
     <% if current_user.producer? %>
-      <%= link_to "Edit Program Information", edit_program_path(@program), class: "button" %>
+      <p>
+        <%= link_to "Edit Program Information", edit_program_path(@program), class: "button" %>
+      </p>
     <% end %>
     <h3>Instructors:</h3>
     <% @instructors.each do |instructor| %>

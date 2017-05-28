@@ -390,6 +390,8 @@ input[type=text],
 input[type=password],
 input[type=search],
 input[type=email],
+input[type=date],
+input[type=time],
 select,
 .date{
   display:block;
@@ -408,7 +410,10 @@ select,
 }
 input[type=text],
 input[type=email],
-input[type=password]{
+input[type=password],
+input[type=date],
+input[type=time],
+{
   padding:10px;
 }
 input[type=text].sm{

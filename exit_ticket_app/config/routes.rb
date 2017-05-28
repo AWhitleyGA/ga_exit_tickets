@@ -6,6 +6,10 @@ Rails.application.routes.draw do
     resources :lessons do
       resources :surveys
     end
+    resources :memberships, only: [:create, :destroy]
+    member do
+      get 'manage'
+    end
   end
 
   root to: 'programs#index'

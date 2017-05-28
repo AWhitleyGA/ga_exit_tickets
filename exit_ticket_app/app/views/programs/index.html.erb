@@ -1,18 +1,18 @@
 <main>
   <div>
     <h2>Active Programs
-    <% if current_user.is_producer? %>
+    <% if current_user.producer? %>
       <%= link_to "(Add New)", new_program_path %>
     <% end %>
     </h2>
     <% @active_programs.each do |program| %>
-      <h3><%= link_to program.name, program_path(program) %></h3>
+      <%= link_to program.name, program_path(program), class: "button" %>
     <% end %>
   </div>
   <div>
     <h2>Previous Programs</h2>
     <% @inactive_programs.each do |program| %>
-      <h3><%= link_to program.name, program_path(program) %></h3>
+      <%= link_to program.name, program_path(program), class: "button" %>
     <% end %>
   </div>
 </main>

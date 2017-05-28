@@ -33,7 +33,7 @@ class LessonsController < ApplicationController
     @lesson = @program.lessons.new
     @suggested_lesson_number = @program.lessons.length
     @instructors = @program.users.select do |user|
-      !user.is_producer?
+      !user.producer?
     end
   end
 

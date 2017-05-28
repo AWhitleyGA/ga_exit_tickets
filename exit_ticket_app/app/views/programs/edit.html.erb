@@ -1,0 +1,21 @@
+<main>
+  <% if @program.errors.full_messages.any? %>
+    <div>
+      <% @program.errors.full_messages.each do |error_message| %>
+        <p><%= error_message %></p>
+      <% end %>
+    </div>
+  <% end %>
+  <%= form_for @program do |f| %>
+    <%= f.label "Program Name" %>
+    <%= f.text_field :name %>
+
+    <%= f.label "Program Location" %>
+    <%= f.text_field :location %>
+
+    <%= f.label "Status" %>
+    <%= f.select :active, options_for_select([["Active", true], ["Inactive", false]], @program.active?) %>
+
+    <%= f.submit "Update Program" %>
+  <% end %>
+</main>

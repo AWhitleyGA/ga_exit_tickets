@@ -1,0 +1,22 @@
+<main>
+  <% if @membership.errors.full_messages.any? %>
+    <div>
+      <% @membership.errors.full_messages.each do |error_message| %>
+        <p><%= error_message %></p>
+      <% end %>
+    </div>
+  <% end %>
+  <h2><%= @program.name %></h2>
+  <h3>Current Instructors: </h3>
+  <% @instructors.each do |instructor| %>
+      <p>
+        <%= instructor.name %>
+        <%= link_to "Remove", program_membership_path(@program, instructor), method: :delete %>
+      </p>
+  <% end %>
+  <h3>Add New Instructors:</h3>
+  <%= form_for [@program, @membership] do |f| %>
+    <%= f.collection_select :user_id, @users, :id, :name %>
+    <%= f.submit "Add Instructor"%>
+  <% end %>
+</main>

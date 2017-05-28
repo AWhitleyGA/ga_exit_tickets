@@ -1,19 +1,25 @@
 <main class="program-show">
   <section class="program-info">
     <h2><%= @program.name %></h2>
-    <% if current_user.is_producer? %>
-      <%= link_to "Edit Program Information", edit_program_path(@program) %>
-    <% end %>
-    <h3><%= @program.location %></h3>
-    <h3>Instructors: </h3>
-    <% @instructors.each do |instructor| %>
-      <p><%= instructor.name %></p>
-    <% end %>
+    <h3>Location:</h3>
+    <p><%= @program.location %></p>
     <h3>Status:</h3>
-    <% if @program.is_active? %>
+    <% if @program.active? %>
       <p class="green">Active</p>
     <% else %>
       <p class="red">Inactive</p>
+    <% end %>
+    <% if current_user.producer? %>
+      <%= link_to "Edit Program Information", edit_program_path(@program), class: "button" %>
+    <% end %>
+    <h3>Instructors:</h3>
+    <% @instructors.each do |instructor| %>
+    <p><%= instructor.name %></p>
+    <% end %>
+    <% if current_user.producer? %>
+      <p>
+        <%= link_to "Manage Instructors", manage_program_path(@program), class: "button" %>
+      </p>
     <% end %>
   </section>
   <section class="lesson-gallery">

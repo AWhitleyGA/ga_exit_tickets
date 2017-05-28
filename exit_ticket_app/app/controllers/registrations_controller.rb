@@ -8,7 +8,7 @@ class RegistrationsController < Devise::RegistrationsController
       :password,
       :password_confirmation,
       :name,
-      :is_producer?
+      :producer
     )
   end
 

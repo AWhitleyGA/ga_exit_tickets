@@ -47,6 +47,32 @@ class LessonsController < ApplicationController
     end
   end
 
+  def edit
+    @program = Program.find(params[:program_id])
+    @lesson = @program.lessons.find(params[:id])
+    @instructors = @program.users
+  end
+
+  def update
+    @program = Program.find(params[:program_id])
+    @lesson = @program.lessons.find(params[:id])
+    if @lesson.update(lesson_params)
+      redirect_to program_lesson_path(@program, @lesson)
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @program = Program.find(params[:program_id])
+    @lesson = @program.lessons.find(params[:id])
+    if @lesson.destroy
+      redirect_to program_path(@program)
+    else
+      render :edit
+    end
+  end
+
   private
 
   def lesson_params

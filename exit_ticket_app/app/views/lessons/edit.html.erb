@@ -8,7 +8,7 @@
   <% end %>
   <%= form_for [@program, @lesson] do |f| %>
     <%= f.label "Lesson Number" %>
-    <%= f.number_field :number, value: @suggested_lesson_number %>
+    <%= f.number_field :number %>
 
     <%= f.label "Lesson Name" %>
     <%= f.text_field :name %>
@@ -25,6 +25,9 @@
     <%= f.label "Instructor" %>
     <%= f.collection_select :user_id, @instructors, :id, :name %>
     <br />
-    <%= f.submit "Add Lesson" %>
+    <%= f.submit "Update Lesson" %>
+  <% end %>
+  <%= form_for [@program, @lesson], method: :delete, data: { confirm: 'Are you sure?' } do |f| %>
+    <%= f.submit "Delete Lesson" %>
   <% end %>
 </main>

@@ -3,6 +3,9 @@
     <h2><%= @lesson.number %>. <%= @lesson.name %></h2>
     <p><%= @lesson.date %>, <%= @lesson.start_time %> - <%= @lesson.end_time %></p>
     <p>Instructor: <%= @instructor.name %></p>
+    <p>
+      <%= link_to "Edit Lesson", edit_program_lesson_path(@program, @lesson), class: "button" %>
+    </p>
     <div class="average-header">Learning Objectives Rating</div>
     <div class="average-row" <%= color_of(@avg_lo_rating) %>><%= @avg_lo_rating %></div>
     <div class="average-header">Delivery Rating</div>

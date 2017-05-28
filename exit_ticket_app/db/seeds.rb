@@ -10,20 +10,20 @@ User.destroy_all
 Program.destroy_all
 
 User.create!([
-  {name: "Andy Whitley", email: "andrew.whitley@generalassemb.ly", password: "password", is_producer?: false},
-  {name: "Adrian Maseda", email: "adrian.maseda@generalassemb.ly", password: "password", is_producer?: false},
-  {name: "Nayana Davis", email: "nayana.davis@generalassemb.ly", password: "password", is_producer?: false},
-  {name: "Matt Brems", email: "matt.brems@generalassemb.ly", password: "password", is_producer?: false},
-  {name: "Joseph Nelson", email: "joseph.nelson@generalassemb.ly", password: "password", is_producer?: false},
-  {name: "Ritika Bhasker", email: "ritika.bhasker@generalassemb.ly", password: "password", is_producer?: false},
-  {name: "Phil Ahn", email: "philip.ahn@generalassemb.ly", password: "password", is_producer?: true}
+  {name: "Andy Whitley", email: "andrew.whitley@generalassemb.ly", password: "password", producer: false},
+  {name: "Adrian Maseda", email: "adrian.maseda@generalassemb.ly", password: "password", producer: false},
+  {name: "Nayana Davis", email: "nayana.davis@generalassemb.ly", password: "password", producer: false},
+  {name: "Matt Brems", email: "matt.brems@generalassemb.ly", password: "password", producer: false},
+  {name: "Joseph Nelson", email: "joseph.nelson@generalassemb.ly", password: "password", producer: false},
+  {name: "Ritika Bhasker", email: "ritika.bhasker@generalassemb.ly", password: "password", producer: false},
+  {name: "Phil Ahn", email: "philip.ahn@generalassemb.ly", password: "password", producer: true}
 ])
 
 Program.create!([
-  {name: "WDI13", location: "D.C. Campus, Classroom 6", is_active?: false},
-  {name: "WDI14", location: "D.C. Campus, Classroom 5", is_active?: true},
-  {name: "DSI3", location: "D.C. Campus, Classroom 1", is_active?: false},
-  {name: "DSI4", location: "D.C. Campus, Classroom 5", is_active?: true}
+  {name: "WDI13", location: "D.C. Campus, Classroom 6", active: false},
+  {name: "WDI14", location: "D.C. Campus, Classroom 5", active: true},
+  {name: "DSI3", location: "D.C. Campus, Classroom 1", active: false},
+  {name: "DSI4", location: "D.C. Campus, Classroom 5", active: true}
 ])
 
 Membership.create!([

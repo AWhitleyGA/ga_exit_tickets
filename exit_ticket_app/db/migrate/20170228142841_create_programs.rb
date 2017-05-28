@@ -3,7 +3,7 @@ class CreatePrograms < ActiveRecord::Migration[5.0]
     create_table :programs do |t|
       t.string :name, null: false
       t.string :location, null: false
-      t.boolean :is_active?, default: true
+      t.boolean :active, default: true
       t.timestamps
     end
   end

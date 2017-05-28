@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(version: 20170301161838) do
   create_table "programs", force: :cascade do |t|
     t.string   "name",                      null: false
     t.string   "location",                  null: false
-    t.boolean  "is_active?", default: true
+    t.boolean  "active",     default: true
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
   end
@@ -66,7 +66,7 @@ ActiveRecord::Schema.define(version: 20170301161838) do
     t.string   "email",                  default: "",    null: false
     t.string   "encrypted_password",     default: "",    null: false
     t.string   "name",                                   null: false
-    t.boolean  "is_producer?",           default: false, null: false
+    t.boolean  "producer",               default: false, null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"

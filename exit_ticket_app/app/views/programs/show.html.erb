@@ -5,9 +5,9 @@
     <p><%= @program.location %></p>
     <h3>Status:</h3>
     <% if @program.active? %>
-      <p class="green">Active</p>
+      <p class="green"><strong>Active</strong></p>
     <% else %>
-      <p class="red">Inactive</p>
+      <p class="red"><strong>Inactive</strong></p>
     <% end %>
     <% if current_user.producer? %>
       <%= link_to "Edit Program Information", edit_program_path(@program), class: "button" %>

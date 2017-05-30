@@ -1,5 +1,10 @@
 class RegistrationsController < Devise::RegistrationsController
 
+  def show
+    @user = current_user
+    @programs = @user.programs
+  end
+
   private
 
   def sign_up_params

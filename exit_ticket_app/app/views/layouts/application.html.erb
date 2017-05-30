@@ -12,7 +12,7 @@
     <h1><%= link_to root_path do %><span class="logo">GA </span>Exit Tickets<% end %></h1>
       <span class="separate"></span>
       <% if current_user %>
-        <%= link_to current_user.email, root_path %>
+        <%= link_to current_user.email, account_path %>
         <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
       <% end %>
     </nav>

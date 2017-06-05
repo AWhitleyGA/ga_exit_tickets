@@ -13,9 +13,7 @@ class ProgramsController < ApplicationController
 
   def show
     @program = Program.find(params[:id])
-    @instructors = @program.users.select do |user|
-      !user.producer?
-    end
+    @instructors = @program.users
     @lessons = @program.lessons.order(:date).map do |lesson|
       sum_ratings = lesson.surveys.reduce(0) do |acc, survey|
         acc + ((survey.lo_rating + survey.delivery_rating + survey.comfort_rating) / 3)
@@ -71,11 +69,9 @@ class ProgramsController < ApplicationController
   def manage
     @program = Program.find(params[:id])
     @membership = @program.memberships.new
-    @instructors = @program.users.select do |user|
-      !user.producer?
-    end
+    @instructors = @program.users
     @users = User.all.select do |user|
-      !@instructors.include?(user) && !user.producer?
+      !@instructors.include?(user)
     end
   end
 

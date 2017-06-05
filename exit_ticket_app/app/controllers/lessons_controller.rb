@@ -32,9 +32,7 @@ class LessonsController < ApplicationController
     @program = Program.find(params[:program_id])
     @lesson = @program.lessons.new
     @suggested_lesson_number = @program.lessons.length
-    @instructors = @program.users.select do |user|
-      !user.producer?
-    end
+    @instructors = @program.users
   end
 
   def create

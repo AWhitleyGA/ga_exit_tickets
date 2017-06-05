@@ -38,11 +38,7 @@ Membership.create!([
   {user_id: 5, program_id: 3},
   {user_id: 5, program_id: 4},
   {user_id: 6, program_id: 3},
-  {user_id: 6, program_id: 4},
-  {user_id: 7, program_id: 1},
-  {user_id: 7, program_id: 2},
-  {user_id: 7, program_id: 3},
-  {user_id: 7, program_id: 4}
+  {user_id: 6, program_id: 4}
 ])
 
 Lesson.create!([

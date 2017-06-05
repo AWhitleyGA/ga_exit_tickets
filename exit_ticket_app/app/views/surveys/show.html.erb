@@ -1,10 +1,17 @@
 <main class="survey-show">
   <section class="survey-info">
     <h2><%= @lesson.number %>. <%= @lesson.name %></h2>
-    <p><%= @lesson.date %>, <%= @lesson.start_time %> - <%= @lesson.end_time %></p>
+    <p><%= @lesson.date.strftime("%A, %B %d, %Y ") %></p>
+    <p><%= @lesson.start_time.strftime("%I:%M%p") %> - <%= @lesson.end_time.strftime("%I:%M%p") %></p>
     <p>Instructor: <%= @instructor.name %></p>
     <p>Respondent: <%= @survey.respondent_name %></p>
-    <p>Attended Office Hours this Week?: <strong><%= @survey.attended_office_hours ? "Yes" : "No" %></strong></p>
+    <p>Attended Office Hours this Week:
+      <% if @survey.attended_office_hours? %>
+        <strong class="green">Yes</strong>
+      <% else %>
+        <strong class="red">No</strong>
+      <% end %>
+    </p>
   </section>
   <section class="survey-detail">
     <div class="survey-detail-row">

@@ -2,24 +2,24 @@ class LessonsController < ApplicationController
   def show
     @program = Program.find(params[:program_id])
     @lesson = @program.lessons.find(params[:id])
-    @surveys = @lesson.surveys
+    @surveys = @lesson.surveys.order(:created_at)
     @instructor = @lesson.instructor
 
     if @surveys.length > 0
       sum_lo = @surveys.reduce(0) do |acc, survey|
         acc + survey.lo_rating
       end
-      @avg_lo_rating = sum_lo.to_f / @surveys.length
+      @avg_lo_rating = (sum_lo.to_f / @surveys.length).round(1)
 
       sum_delivery = @surveys.reduce(0) do |acc, survey|
         acc + survey.delivery_rating
       end
-      @avg_delivery_rating = sum_delivery.to_f / @surveys.length
+      @avg_delivery_rating = (sum_delivery.to_f / @surveys.length).round(1)
 
       sum_comfort = @surveys.reduce(0) do |acc, survey|
         acc + survey.comfort_rating
       end
-      @avg_comfort_rating = sum_comfort.to_f / @surveys.length
+      @avg_comfort_rating = (sum_comfort.to_f / @surveys.length).round(1)
     else
       @avg_lo_rating = 0
       @avg_delivery_rating = 0

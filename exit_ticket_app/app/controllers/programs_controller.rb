@@ -3,11 +3,11 @@ class ProgramsController < ApplicationController
 
   def index
     if current_user.producer?
-      @active_programs = Program.where(active: true)
-      @inactive_programs = Program.where(active: false)
+      @active_programs = Program.where(active: true).order(:created_at)
+      @inactive_programs = Program.where(active: false).order(:created_at)
     else
-      @active_programs = current_user.programs.where(active: true)
-      @inactive_programs = current_user.programs.where(active: false)
+      @active_programs = current_user.programs.where(active: true).order(:created_at)
+      @inactive_programs = current_user.programs.where(active: false).order(:created_at)
     end
   end
 
@@ -16,7 +16,7 @@ class ProgramsController < ApplicationController
     @instructors = @program.users.select do |user|
       !user.producer?
     end
-    @lessons = @program.lessons.map do |lesson|
+    @lessons = @program.lessons.order(:date).map do |lesson|
       sum_ratings = lesson.surveys.reduce(0) do |acc, survey|
         acc + ((survey.lo_rating + survey.delivery_rating + survey.comfort_rating) / 3)
       end

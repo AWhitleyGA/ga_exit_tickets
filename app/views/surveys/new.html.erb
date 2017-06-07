@@ -7,37 +7,37 @@
     </div>
   <% end %>
   <%= form_for [@program, @lesson, @survey] do |f| %>
-    <%= f.label "Please Enter Your Name"  %>
+    <%= f.label :respondent_name, "Please Enter Your Name"  %>
     <%= f.text_field :respondent_name %>
 
-    <%= f.label "LO RATING"  %>
+    <%= f.label :lo_rating, "I feel that I achieved the learning objectives for this lesson"  %>
     <% 10.times do |i|%>
       <%= f.radio_button :lo_rating, i + 1, id: "lo-rating-#{i + 1}" %>
       <%= f.label :lo_rating, i + 1, for: "lo-rating-#{i + 1}" %>
     <% end %>
 
-    <%= f.label "DELIVERY RATING"  %>
+    <%= f.label :delivery_rating, "The lesson agenda was well-organized and delivered"  %>
     <% 10.times do |i|%>
       <%= f.radio_button :delivery_rating, i + 1, id: "delivery-rating-#{i + 1}" %>
       <%= f.label :delivery_rating, i + 1, for: "delivery-rating-#{i + 1}" %>
     <% end %>
 
-    <%= f.label "COMFORT RATING"  %>
+    <%= f.label :comfort_rating, "I feel prepared to continue practicing this skill outside of class"  %>
     <% 10.times do |i|%>
       <%= f.radio_button :comfort_rating, i + 1, id: "comfort-rating-#{i + 1}" %>
       <%= f.label :comfort_rating, i + 1, for: "comfort-rating-#{i + 1}" %>
     <% end %>
 
-    <%= f.label "POSITIVE COMMENT" %>
+    <%= f.label :positive_comment, "What did you like about today's lesson?" %>
     <%= f.text_area :positive_comment %>
 
-    <%= f.label "NEGATIVE COMMENT" %>
+    <%= f.label :negative_comment, "What could have been better?" %>
     <%= f.text_area :negative_comment %>
 
-    <%= f.label "GENERAL COMMENT" %>
+    <%= f.label :general_comment, "Do you have any other questions about the material or general comments?" %>
     <%= f.text_area :general_comment %>
 
-    <%= f.label "ATTENDED OFFICE HOURS" %>
+    <%= f.label :attended_office_hours, "Have you gone to Office Hours this week?" %>
     <%= f.radio_button :attended_office_hours, true, id: "office-hours-true" %>
     <%= f.label :attended_office_hours, "Yes", for: "office-hours-true" %>
     <%= f.radio_button :attended_office_hours, false, id: "office-hours-false" %>

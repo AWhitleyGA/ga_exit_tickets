@@ -7,22 +7,22 @@
     </div>
   <% end %>
   <%= form_for [@program, @lesson] do |f| %>
-    <%= f.label "Lesson Number" %>
+    <%= f.label :number, "Lesson Number" %>
     <%= f.number_field :number %>
 
-    <%= f.label "Lesson Name" %>
+    <%= f.label :name, "Lesson Name" %>
     <%= f.text_field :name %>
 
-    <%= f.label "Lesson Date" %>
+    <%= f.label :date, "Lesson Date" %>
     <%= f.date_field :date %>
 
-    <%= f.label "Lesson Start Time" %>
+    <%= f.label :start_time, "Lesson Start Time" %>
     <%= f.time_field :start_time %>
 
-    <%= f.label "Lesson End Time" %>
+    <%= f.label :end_time, "Lesson End Time" %>
     <%= f.time_field :end_time %>
 
-    <%= f.label "Instructor" %>
+    <%= f.label :user_id, "Instructor" %>
     <%= f.collection_select :user_id, @instructors, :id, :name %>
     <br />
     <%= f.submit "Update Lesson" %>

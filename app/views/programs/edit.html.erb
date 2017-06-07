@@ -7,13 +7,13 @@
     </div>
   <% end %>
   <%= form_for @program do |f| %>
-    <%= f.label "Program Name" %>
+    <%= f.label :name, "Program Name" %>
     <%= f.text_field :name %>
 
-    <%= f.label "Program Location" %>
+    <%= f.label :location, "Program Location" %>
     <%= f.text_field :location %>
 
-    <%= f.label "Status" %>
+    <%= f.label :active, "Status" %>
     <%= f.select :active, options_for_select([["Active", true], ["Inactive", false]], @program.active?) %>
 
     <%= f.submit "Update Program" %>

@@ -7,10 +7,10 @@
     </div>
   <% end %>
   <%= form_for @program do |f| %>
-    <%= f.label "Program Name" %>
+    <%= f.label :name, "Program Name" %>
     <%= f.text_field :name %>
 
-    <%= f.label "Program Location" %>
+    <%= f.label :location, "Program Location" %>
     <%= f.text_field :location %>
 
     <%= f.submit "Create Program" %>

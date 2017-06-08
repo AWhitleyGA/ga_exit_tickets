@@ -28,7 +28,7 @@ module ApplicationHelper
     else # Makes sure the color doesn't go past green or red
       hsl_color_value = [hsl_color_value, hsl_red_value].max
     end
-    hsl_string = "hsl(#{hsl_color_value},100%,90%)"
+    hsl_string = "hsl(#{hsl_color_value}, 100%, 80%)"
     return hsl_color_value if (type_of_output === "int")
     return hsl_string if (type_of_output === "hsl_string")
     return "style='background-color:#{hsl_string};'".html_safe

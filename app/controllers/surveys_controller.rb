@@ -1,4 +1,5 @@
 class SurveysController < ApplicationController
+  before_action :authenticate_user!, only: [:show]
 
   def show
     @program = Program.find(params[:program_id])

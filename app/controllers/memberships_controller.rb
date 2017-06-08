@@ -1,4 +1,6 @@
 class MembershipsController < ApplicationController
+  before_action :authenticate_user!
+
 
   def create
     @program = Program.find(params[:program_id])

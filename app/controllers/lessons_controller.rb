@@ -1,4 +1,6 @@
 class LessonsController < ApplicationController
+  before_action :authenticate_user!
+
   def show
     @program = Program.find(params[:program_id])
     @lesson = @program.lessons.find(params[:id])

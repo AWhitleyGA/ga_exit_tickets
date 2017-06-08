@@ -7,7 +7,7 @@
     </div>
   <% end %>
   <%= form_for [@program, @lesson, @survey] do |f| %>
-    <%= f.label :respondent_name, "Please Enter Your Name"  %>
+    <%= f.label :respondent_name, "Please Enter Your Name (Optional)"  %>
     <%= f.text_field :respondent_name %>
 
     <%= f.label :lo_rating, "I feel that I achieved the learning objectives for this lesson"  %>

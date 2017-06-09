@@ -65,3 +65,14 @@ $mobile: "(max-width:600px)";
 .red {
   color: #f9152f;
 }
+
+.flex-header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 10px 0;
+  &>* {
+    padding: 0 20px 0 0;
+    margin: 0;
+  }
+}

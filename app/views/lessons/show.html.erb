@@ -15,7 +15,9 @@
     <div class="average-row" <%= color_of(@avg_comfort_rating) %>><%= @avg_comfort_rating %></div>
   </section>
   <section class="survey-gallery">
-    <h3>Survey Responses <%= link_to "(+)", new_program_lesson_survey_path(@program, @lesson) %></h3>
+    <div class="flex-header">
+      <h3>Survey Responses</h3> <%= link_to "New Survey", new_program_lesson_survey_path(@program, @lesson), class: "button" %>
+    </div>
     <div class="survey-table">
       <div class="survey-header">
         <div>Respondent</div>

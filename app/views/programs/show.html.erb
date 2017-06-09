@@ -25,7 +25,9 @@
     <% end %>
   </section>
   <section class="lesson-gallery">
-    <h3>Lessons <%= link_to "(+)", new_program_lesson_path(@program) %></h3>
+    <div class="flex-header">
+      <h3>Lessons</h3> <%= link_to "New Lesson", new_program_lesson_path(@program), class: "button" %>
+    </div>
     <div class="lesson-table">
       <div class="lesson-header">
         <div>Number</div>

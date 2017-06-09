@@ -1,10 +1,11 @@
 <main>
   <div>
-    <h2>Active Programs
-    <% if current_user.producer? %>
-      <%= link_to "(Add New)", new_program_path %>
-    <% end %>
-    </h2>
+    <div class="flex-header">
+      <h2>Active Programs</h2>
+      <% if current_user.producer? %>
+        <%= link_to "New Program", new_program_path, class: "button" %>
+      <% end %>
+    </div>
     <% @active_programs.each do |program| %>
       <%= link_to program.name, program_path(program), class: "button" %>
     <% end %>

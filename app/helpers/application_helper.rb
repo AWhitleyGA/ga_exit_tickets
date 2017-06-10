@@ -11,7 +11,7 @@ module ApplicationHelper
     hsl_red_value   = 0
     if input.is_a? Numeric
       greenest_possible_input  ||= 10
-      reddest_possible_input   ||= 0
+      reddest_possible_input   ||= 2
     else # elsif input is a record, like submission, attendance, observation, etc
       greenest_possible_input  ||= (input.class.statuses.count - 1)
       reddest_possible_input   ||= 1
@@ -28,7 +28,7 @@ module ApplicationHelper
     else # Makes sure the color doesn't go past green or red
       hsl_color_value = [hsl_color_value, hsl_red_value].max
     end
-    hsl_string = "hsl(#{hsl_color_value}, 100%, 80%)"
+    hsl_string = "hsl(#{hsl_color_value}, 100%, 82%)"
     return hsl_color_value if (type_of_output === "int")
     return hsl_string if (type_of_output === "hsl_string")
     return "style='background-color:#{hsl_string};'".html_safe

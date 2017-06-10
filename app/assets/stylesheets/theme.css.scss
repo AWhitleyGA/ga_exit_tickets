@@ -178,6 +178,25 @@ nav.breadcrumbs{
       }
     }
   }
+  span{
+    position:relative;
+    @media #{$mobile}{
+      display:block;
+    }
+    box-sizing:border-box;
+    display:inline-block;
+    line-height:50px;
+    padding-left:10px;
+    padding-right:10px;
+    font-family:$font-logo;
+    font-size:36px;
+    text-transform:uppercase;
+    border-right:1px dotted #aaa;
+    text-shadow:0px -1px 0px #eee;
+    @media #{$mobile}{
+      border-right:0;
+    }
+  }
 }
 nav.site-wide{
   z-index: 10;
@@ -190,6 +209,15 @@ nav.site-wide{
       color:$ga-red;
       background-color:#fff;
     }
+  }
+  .banner-logo {
+    border:0;
+    color: #fff;
+    box-sizing:border-box;
+    display:inline-block;
+    line-height:50px;
+    padding-left:10px;
+    padding-right:10px;
   }
 }
 

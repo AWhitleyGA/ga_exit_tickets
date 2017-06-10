@@ -1,6 +1,5 @@
 <main class="survey-show">
   <section class="survey-info">
-    <h2><%= @lesson.number %>. <%= @lesson.name %></h2>
     <p><%= @lesson.date.strftime("%A, %B %d, %Y ") %></p>
     <p><%= @lesson.start_time.strftime("%I:%M%p") %> - <%= @lesson.end_time.strftime("%I:%M%p") %></p>
     <p>Instructor: <%= @instructor.name %></p>

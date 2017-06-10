@@ -9,12 +9,39 @@
   </head>
   <body>
     <nav class="site-wide">
-    <h1><%= link_to root_path do %><span class="logo">GA </span>Exit Tickets<% end %></h1>
+      <% if signed_in? %>
+        <h1><%= link_to root_path do %><span class="logo">GA </span>Exit Tickets<% end %></h1>
+      <% else %>
+        <h1 class="banner-logo"><span class="logo">GA </span>Exit Tickets</h1>
+      <% end %>
       <span class="separate"></span>
       <% if current_user %>
         <%= link_to current_user.email, account_path %>
         <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
       <% end %>
+    </nav>
+    <nav class="breadcrumbs">
+      <% if signed_in? %>
+        <% if @program && @program.id %>
+          <%= link_to @program.name, program_path(@program) %>
+        <% end %>
+        <% if @lesson && @lesson.id %>
+          <%= link_to "Lesson: #{@lesson.name}", program_lesson_path(@program, @lesson) %>
+        <% end %>
+        <% if @survey && @survey.id %>
+          <%= link_to "Survey: #{@survey.respondent_name}", program_lesson_survey_path(@program, @lesson, @survey) %>
+        <% end %>
+      <% else %>
+        <% if @program && @program.id %>
+          <span><%= @program.name %></span>
+        <% end %>
+        <% if @lesson && @lesson.id %>
+          <span><%= "Lesson: #{@lesson.name}" %></span>
+        <% end %>
+        <% if @survey && @survey.id %>
+          <span><%= "Survey: #{@survey.respondent_name}" %></span>
+        <% end %>
+      <%end%>
     </nav>
     <%= yield %>
   </body>

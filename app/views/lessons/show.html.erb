@@ -17,17 +17,36 @@
     <div class="flex-header">
       <h3>Survey Responses</h3> <%= link_to "New Survey", new_program_lesson_survey_path(@program, @lesson), class: "button" %>
     </div>
-    <div class="survey-table">
-      <div class="survey-header">
-        <div>Respondent</div>
-        <div>Learning Objectives</div>
-        <div>Delivery</div>
-        <div>Comfort</div>
-        <div>Office Hours Attended</div>
+    <% if params[:view] != "comments" %>
+      <%= link_to "Toggle Comments List", program_lesson_path(@program, @lesson, view: "comments"), class: "button" %>
+      <div class="survey-table">
+        <div class="survey-header">
+          <div>Respondent</div>
+          <div>Learning Objectives</div>
+          <div>Delivery</div>
+          <div>Comfort</div>
+          <div>Office Hours Attended</div>
+        </div>
+        <% @surveys.each do |survey| %>
+          <%= render partial: "survey_ratings_row", locals: {survey: survey}%>
+        <% end %>
       </div>
-      <% @surveys.each do |survey| %>
-        <%= render partial: "survey_row", locals: {survey: survey}%>
-      <% end %>
-  </div>
+    <% else %>
+      <%= link_to "Toggle Ratings List", program_lesson_path(@program, @lesson), class: "button" %>
+      <div class="survey-table">
+        <div class="survey-header">
+          <div>Respondent</div>
+          <div>Positive Comments</div>
+          <div>Negative Comments</div>
+          <div>General Comments</div>
+          <div>Office Hours Attended</div>
+        </div>
+        <% @surveys.each do |survey| %>
+          <%= render partial: "survey_comments_row", locals: {survey: survey}%>
+        <% end %>
+      </div>
+    <% end %>
+
+
   </section>
 </main>

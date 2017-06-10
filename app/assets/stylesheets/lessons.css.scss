@@ -37,6 +37,9 @@ $mobile: "(max-width:600px)";
     border-color: #ccc;
     padding: 20px;
     text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   &:hover {
     background: #ddd;
@@ -46,6 +49,7 @@ $mobile: "(max-width:600px)";
 .survey-header {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   margin: 3px;
   border: 2px solid #222;
   background: #222;

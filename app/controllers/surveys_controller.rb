@@ -2,20 +2,20 @@ class SurveysController < ApplicationController
   before_action :authenticate_user!, only: [:show]
 
   def show
-    @program = Program.find(params[:program_id])
+    @program = Program.find_by(name: params[:program_name])
     @lesson = @program.lessons.find(params[:lesson_id])
     @survey = @lesson.surveys.find(params[:id])
     @instructor = @lesson.instructor
   end
 
   def new
-    @program = Program.find(params[:program_id])
+    @program = Program.find_by(name: params[:program_name])
     @lesson = @program.lessons.find(params[:lesson_id])
     @survey = @lesson.surveys.new
   end
 
   def create
-    @program = Program.find(params[:program_id])
+    @program = Program.find_by(name: params[:program_name])
     @lesson = @program.lessons.find(params[:lesson_id])
     @survey = @lesson.surveys.new(survey_params)
     if @survey.respondent_name == ""

@@ -6,7 +6,7 @@
       <% end %>
     </div>
   <% end %>
-  <%= form_for [@program, @lesson] do |f| %>
+  <%= form_for @lesson, url: program_lesson_path(@program.name, @lesson) do |f| %>
     <%= f.label :number, "Lesson Number" %>
     <%= f.number_field :number %>
 
@@ -27,7 +27,7 @@
     <br />
     <%= f.submit "Update Lesson" %>
   <% end %>
-  <%= form_for [@program, @lesson], method: :delete, data: { confirm: 'Are you sure?' } do |f| %>
+  <%= form_for @lesson, url: program_lesson_path(@program.name, @lesson), method: :delete, data: { confirm: 'Are you sure?' } do |f| %>
     <%= f.submit "Delete Lesson" %>
   <% end %>
 </main>

@@ -2,7 +2,7 @@ class LessonsController < ApplicationController
   before_action :authenticate_user!
 
   def show
-    @program = Program.find(params[:program_id])
+    @program = Program.find_by(name: params[:program_name])
     @lesson = @program.lessons.find(params[:id])
     @surveys = @lesson.surveys.order(:created_at)
     @instructor = @lesson.instructor
@@ -31,43 +31,43 @@ class LessonsController < ApplicationController
   end
 
   def new
-    @program = Program.find(params[:program_id])
+    @program = Program.find_by(name: params[:program_name])
     @lesson = @program.lessons.new
     @suggested_lesson_number = @program.lessons.length
     @instructors = @program.users
   end
 
   def create
-    @program = Program.find(params[:program_id])
+    @program = Program.find_by(name: params[:program_name])
     @lesson = @program.lessons.new(lesson_params)
     if @lesson.save
-      redirect_to program_lesson_path(@program, @lesson)
+      redirect_to program_lesson_path(@program.name, @lesson)
     else
       render :new
     end
   end
 
   def edit
-    @program = Program.find(params[:program_id])
+    @program = Program.find_by(name: params[:program_name])
     @lesson = @program.lessons.find(params[:id])
     @instructors = @program.users
   end
 
   def update
-    @program = Program.find(params[:program_id])
+    @program = Program.find_by(name: params[:program_name])
     @lesson = @program.lessons.find(params[:id])
     if @lesson.update(lesson_params)
-      redirect_to program_lesson_path(@program, @lesson)
+      redirect_to program_lesson_path(@program.name, @lesson)
     else
       render :edit
     end
   end
 
   def destroy
-    @program = Program.find(params[:program_id])
+    @program = Program.find_by(name: params[:program_name])
     @lesson = @program.lessons.find(params[:id])
     if @lesson.destroy
-      redirect_to program_path(@program)
+      redirect_to program_path(@program.name)
     else
       render :edit
     end

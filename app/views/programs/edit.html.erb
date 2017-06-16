@@ -6,7 +6,7 @@
       <% end %>
     </div>
   <% end %>
-  <%= form_for @program do |f| %>
+  <%= form_for @program, url: program_path(@program.name) do |f| %>
     <%= f.label :name, "Program Name" %>
     <%= f.text_field :name %>
 
@@ -18,7 +18,7 @@
 
     <%= f.submit "Update Program" %>
   <% end %>
-  <%= form_for @program, method: :delete, data: { confirm: "Are you sure?" } do |f| %>
+  <%= form_for @program, url: program_path(@program.name), method: :delete, data: { confirm: "Are you sure?" } do |f| %>
     <%= f.submit "Delete Program" %>
   <% end %>
 </main>

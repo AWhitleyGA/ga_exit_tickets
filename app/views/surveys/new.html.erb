@@ -6,7 +6,7 @@
       <% end %>
     </div>
   <% end %>
-  <%= form_for [@program, @lesson, @survey] do |f| %>
+  <%= form_for @survey, url: program_lesson_surveys_path(@program.name, @lesson) do |f| %>
     <%= f.label :respondent_name, "Please Enter Your Name (Optional)"  %>
     <%= f.text_field :respondent_name %>
 

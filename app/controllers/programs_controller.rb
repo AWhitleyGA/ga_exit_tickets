@@ -12,7 +12,7 @@ class ProgramsController < ApplicationController
   end
 
   def show
-    @program = Program.find(params[:id])
+    @program = Program.find_by(name: params[:name])
     @instructors = @program.users
     @lessons = @program.lessons.order(:date).map do |lesson|
       sum_ratings = lesson.surveys.reduce(0) do |acc, survey|
@@ -38,27 +38,27 @@ class ProgramsController < ApplicationController
   def create
     @program = Program.new(program_params)
     if @program.save
-      redirect_to program_path(@program)
+      redirect_to program_path(@program.name)
     else
       render :new
     end
   end
 
   def edit
-    @program = Program.find(params[:id])
+    @program = Program.find_by(name: params[:name])
   end
 
   def update
-    @program = Program.find(params[:id])
+    @program = Program.find_by(name: params[:name])
     if @program.update(program_params)
-      redirect_to program_path(@program)
+      redirect_to program_path(@program.name)
     else
       render :edit
     end
   end
 
   def destroy
-    @program = Program.find(params[:id])
+    @program = Program.find_by(name: params[:name])
     if @program.destroy
       redirect_to programs_path
     else
@@ -67,7 +67,7 @@ class ProgramsController < ApplicationController
   end
 
   def manage
-    @program = Program.find(params[:id])
+    @program = Program.find_by(name: params[:name])
     @membership = @program.memberships.new
     @instructors = @program.users
     @users = User.all.select do |user|

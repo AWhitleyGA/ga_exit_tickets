@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   end
 
   resources :instructors
-  resources :programs do
+  resources :programs, param: :name do
     resources :lessons do
       resources :surveys
     end

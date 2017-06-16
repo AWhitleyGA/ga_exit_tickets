@@ -3,20 +3,20 @@ class MembershipsController < ApplicationController
 
 
   def create
-    @program = Program.find(params[:program_id])
+    @program = Program.find_by(name: params[:program_name])
     @membership = @program.memberships.new(membership_params)
     if @membership.save
-      redirect_to manage_program_path(@program)
+      redirect_to manage_program_path(@program.name)
     else
       render "programs/manage"
     end
   end
 
   def destroy
-    @program = Program.find(params[:program_id])
+    @program = Program.find_by(name: params[:program_name])
     @membership = @program.memberships.find_by(user_id: params[:id])
     @membership.destroy
-    redirect_to manage_program_path(@program)
+    redirect_to manage_program_path(@program.name)
   end
 
   private

@@ -7,13 +7,13 @@
       <% end %>
     </div>
     <% @active_programs.each do |program| %>
-      <%= link_to program.name, program_path(program), class: "button" %>
+      <%= link_to program.name, program_path(program.name), class: "button" %>
     <% end %>
   </div>
   <div>
     <h2>Inactive Programs</h2>
     <% @inactive_programs.each do |program| %>
-      <%= link_to program.name, program_path(program), class: "button" %>
+      <%= link_to program.name, program_path(program.name), class: "button" %>
     <% end %>
   </div>
 </main>

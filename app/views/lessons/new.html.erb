@@ -6,7 +6,7 @@
       <% end %>
     </div>
   <% end %>
-  <%= form_for [@program, @lesson] do |f| %>
+  <%= form_for @lesson, url: program_lessons_path(@program.name) do |f| %>
     <%= f.label :number, "Lesson Number" %>
     <%= f.number_field :number, value: @suggested_lesson_number %>
 

@@ -26,10 +26,10 @@
           <%= link_to @program.name, program_path(@program.name) %>
         <% end %>
         <% if @lesson && @lesson.id %>
-          <%= link_to "Lesson: #{@lesson.name}", program_lesson_path(@program.name, @lesson) %>
+          <%= link_to "Lesson: #{@lesson.name}", program_lesson_path(@program.name, @lesson.number) %>
         <% end %>
         <% if @survey && @survey.id %>
-          <%= link_to "Survey: #{@survey.respondent_name}", program_lesson_survey_path(@program.name, @lesson, @survey) %>
+          <%= link_to "Survey: #{@survey.respondent_name}", program_lesson_survey_path(@program.name, @lesson.number, @survey) %>
         <% end %>
       <% else %>
         <% if @program && @program.id %>

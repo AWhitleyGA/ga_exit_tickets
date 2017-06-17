@@ -3,26 +3,26 @@ class SurveysController < ApplicationController
 
   def show
     @program = Program.find_by(name: params[:program_name])
-    @lesson = @program.lessons.find(params[:lesson_id])
+    @lesson = @program.lessons.find_by(number: params[:lesson_number])
     @survey = @lesson.surveys.find(params[:id])
     @instructor = @lesson.instructor
   end
 
   def new
     @program = Program.find_by(name: params[:program_name])
-    @lesson = @program.lessons.find(params[:lesson_id])
+    @lesson = @program.lessons.find_by(number: params[:lesson_number])
     @survey = @lesson.surveys.new
   end
 
   def create
     @program = Program.find_by(name: params[:program_name])
-    @lesson = @program.lessons.find(params[:lesson_id])
+    @lesson = @program.lessons.find_by(number: params[:lesson_number])
     @survey = @lesson.surveys.new(survey_params)
+
     if @survey.respondent_name == ""
       @survey.respondent_name = "Anonymous"
     end
 
-    puts @survey.attended_office_hours
     if @survey.save
       render :confirm
     else

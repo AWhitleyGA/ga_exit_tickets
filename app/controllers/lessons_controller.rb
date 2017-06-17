@@ -3,7 +3,7 @@ class LessonsController < ApplicationController
 
   def show
     @program = Program.find_by(name: params[:program_name])
-    @lesson = @program.lessons.find(params[:id])
+    @lesson = @program.lessons.find_by(number: params[:number])
     @surveys = @lesson.surveys.order(:created_at)
     @instructor = @lesson.instructor
 
@@ -42,7 +42,7 @@ class LessonsController < ApplicationController
     @lesson = @program.lessons.new(lesson_params)
     @instructors = @program.users
     if @lesson.save
-      redirect_to program_lesson_path(@program.name, @lesson)
+      redirect_to program_lesson_path(@program.name, @lesson.number)
     else
       render :new
     end
@@ -50,15 +50,16 @@ class LessonsController < ApplicationController
 
   def edit
     @program = Program.find_by(name: params[:program_name])
-    @lesson = @program.lessons.find(params[:id])
+    @lesson = @program.lessons.find_by(number: params[:number])
     @instructors = @program.users
   end
 
   def update
     @program = Program.find_by(name: params[:program_name])
-    @lesson = @program.lessons.find(params[:id])
+    @lesson = @program.lessons.find_by(number: params[:number])
+    @instructors = @program.users
     if @lesson.update(lesson_params)
-      redirect_to program_lesson_path(@program.name, @lesson)
+      redirect_to program_lesson_path(@program.name, @lesson.number)
     else
       render :edit
     end
@@ -66,7 +67,7 @@ class LessonsController < ApplicationController
 
   def destroy
     @program = Program.find_by(name: params[:program_name])
-    @lesson = @program.lessons.find(params[:id])
+    @lesson = @program.lessons.find_by(number: params[:number])
     if @lesson.destroy
       redirect_to program_path(@program.name)
     else

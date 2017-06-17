@@ -4,7 +4,7 @@
     <p><%= @lesson.start_time.strftime("%I:%M%p") %> - <%= @lesson.end_time.strftime("%I:%M%p") %></p>
     <p>Instructor: <%= @instructor.name %></p>
     <p>
-      <%= link_to "Edit Lesson", edit_program_lesson_path(@program.name, @lesson), class: "button" %>
+      <%= link_to "Edit Lesson", edit_program_lesson_path(@program.name, @lesson.number), class: "button" %>
     </p>
     <div class="average-header">Learning Objectives Rating</div>
     <div class="average-row" <%= color_of(@avg_lo_rating) %>><%= @avg_lo_rating %></div>
@@ -15,10 +15,10 @@
   </section>
   <section class="survey-gallery">
     <div class="flex-header">
-      <h3>Survey Responses</h3> <%= link_to "New Survey", new_program_lesson_survey_path(@program.name, @lesson), class: "button" %>
+      <h3>Survey Responses</h3> <%= link_to "New Survey", new_program_lesson_survey_path(@program.name, @lesson.number), class: "button" %>
     </div>
     <% if params[:view] != "comments" %>
-      <%= link_to "Toggle Comments List", program_lesson_path(@program.name, @lesson, view: "comments"), class: "button" %>
+      <%= link_to "Toggle Comments List", program_lesson_path(@program.name, @lesson.number, view: "comments"), class: "button" %>
       <div class="survey-table">
         <div class="survey-header">
           <div>Respondent</div>
@@ -32,7 +32,7 @@
         <% end %>
       </div>
     <% else %>
-      <%= link_to "Toggle Ratings List", program_lesson_path(@program.name, @lesson), class: "button" %>
+      <%= link_to "Toggle Ratings List", program_lesson_path(@program.name, @lesson.number), class: "button" %>
       <div class="survey-table">
         <div class="survey-header">
           <div>Respondent</div>

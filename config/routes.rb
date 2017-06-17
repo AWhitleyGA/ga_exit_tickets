@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
   resources :instructors
   resources :programs, param: :name do
-    resources :lessons do
+    resources :lessons, param: :number do
       resources :surveys
     end
     resources :memberships, only: [:create, :destroy]

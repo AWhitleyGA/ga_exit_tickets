@@ -40,6 +40,7 @@ class LessonsController < ApplicationController
   def create
     @program = Program.find_by(name: params[:program_name])
     @lesson = @program.lessons.new(lesson_params)
+    @instructors = @program.users
     if @lesson.save
       redirect_to program_lesson_path(@program.name, @lesson)
     else

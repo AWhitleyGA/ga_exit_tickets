@@ -5,5 +5,6 @@ class Lesson < ApplicationRecord
 
   has_many :surveys
 
+  validates :number, :name, :date, :start_time, :end_time, :user_id, presence: true
   validates_uniqueness_of :number, scope: :program_id
 end

@@ -4,4 +4,6 @@ class Lesson < ApplicationRecord
   alias_attribute :instructor, :user
 
   has_many :surveys
+
+  validates_uniqueness_of :number, scope: :program_id
 end

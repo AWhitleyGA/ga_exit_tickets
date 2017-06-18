@@ -1,6 +1,18 @@
 class LessonsController < ApplicationController
   before_action :authenticate_user!
 
+  def index
+    @program = Program.find_by(name: params[:program_name])
+
+    respond_to do |format|
+      format.csv {
+        send_data Lesson.export_collection_to_csv(program: @program),
+        :type => 'text/csv; charset=UTF-8;',
+        :disposition => "attachment; filename=#{@program.name}_Lessons_#{Date.current}.csv"
+      }
+    end
+  end
+
   def show
     @program = Program.find_by(name: params[:program_name])
     @lesson = @program.lessons.find_by(number: params[:number])

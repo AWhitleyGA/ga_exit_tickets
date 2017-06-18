@@ -1,6 +1,19 @@
 class SurveysController < ApplicationController
   before_action :authenticate_user!, only: [:show]
 
+  def index
+    @program = Program.find_by(name: params[:program_name])
+    @lesson = @program.lessons.find_by(number: params[:lesson_number])
+
+    respond_to do |format|
+      format.csv {
+        send_data Survey.export_collection_to_csv(lesson: @lesson),
+        :type => 'text/csv; charset=UTF-8;',
+        :disposition => "attachment; filename=#{@program.name}_#{@lesson.name}_Surveys_#{Date.current}.csv"
+      }
+    end
+  end
+
   def show
     @program = Program.find_by(name: params[:program_name])
     @lesson = @program.lessons.find_by(number: params[:lesson_number])

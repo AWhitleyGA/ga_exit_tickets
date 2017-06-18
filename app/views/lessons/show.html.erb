@@ -15,9 +15,11 @@
   </section>
   <section class="survey-gallery">
     <div class="flex-header">
-      <h3>Survey Responses</h3> <%= link_to "New Survey", new_program_lesson_survey_path(@program.name, @lesson.number), class: "button" %>
+      <h3>Survey Responses</h3>
     </div>
     <% if params[:view] != "comments" %>
+      <%= link_to "New Survey", new_program_lesson_survey_path(@program.name, @lesson.number), class: "button" %>
+      <%= link_to "Export Survey Data", program_lesson_surveys_path(@program.name, @lesson.number, format: "csv"), class: "button" %>
       <%= link_to "Toggle Comments List", program_lesson_path(@program.name, @lesson.number, view: "comments"), class: "button" %>
       <div class="survey-table">
         <div class="survey-header">
@@ -32,6 +34,8 @@
         <% end %>
       </div>
     <% else %>
+      <%= link_to "New Survey", new_program_lesson_survey_path(@program.name, @lesson.number), class: "button" %>
+      <%= link_to "Export Survey Data", program_lesson_surveys_path(@program.name, @lesson.number, format: "csv"), class: "button" %>
       <%= link_to "Toggle Ratings List", program_lesson_path(@program.name, @lesson.number), class: "button" %>
       <div class="survey-table">
         <div class="survey-header">

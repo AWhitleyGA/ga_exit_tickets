@@ -24,8 +24,10 @@
     <% end %>
   </section>
   <section class="lesson-gallery">
-    <div class="flex-header">
-      <h3>Lessons</h3> <%= link_to "New Lesson", new_program_lesson_path(@program.name), class: "button" %>
+    <div>
+      <h3>Lessons</h3>
+      <%= link_to "New Lesson", new_program_lesson_path(@program.name), class: "button" %>
+      <%= link_to "Export Lesson Data", program_lessons_path(@program.name, format: "csv"), class: "button" %>
     </div>
     <div class="lesson-table">
       <div class="lesson-header">

@@ -1,11 +1,13 @@
 <main>
   <div>
-    <div class="flex-header">
-      <h2>Active Programs</h2>
-      <% if current_user.producer? %>
-        <%= link_to "New Program", new_program_path, class: "button" %>
-      <% end %>
-    </div>
+    <h2>Options</h2>
+    <% if current_user.producer? %>
+      <%= link_to "New Program", new_program_path, class: "button" %>
+      <%= link_to "Export Program Data", programs_path(format: "csv"), class: "button" %>
+    <% end %>
+  </div>
+  <div>
+    <h2>Active Programs</h2>
     <% @active_programs.each do |program| %>
       <%= link_to program.name, program_path(program.name), class: "button" %>
     <% end %>

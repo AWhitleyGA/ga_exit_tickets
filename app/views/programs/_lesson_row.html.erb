@@ -2,6 +2,6 @@
 <div><%= lesson.number %></div>
 <div><%= lesson.date.strftime("%a, %b %d, %Y ") %></div>
 <div><%= lesson.name %></div>
-<div <%= color_of(lesson.avg_rating) %>><%= lesson.avg_rating %></div>
+<div <%= color_of(lesson.avg_rating) %>><%= lesson.avg_rating || 'N/A' %></div>
 <div><%= lesson.instructor.name %></div>
 <% end %>

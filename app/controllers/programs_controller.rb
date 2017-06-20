@@ -22,17 +22,8 @@ class ProgramsController < ApplicationController
   def show
     @program = Program.find_by(name: params[:name])
     @instructors = @program.users
-    @lessons = @program.lessons.order(:date).map do |lesson|
-      sum_ratings = lesson.surveys.reduce(0) do |acc, survey|
-        acc + ((survey.lo_rating + survey.delivery_rating + survey.comfort_rating) / 3)
-      end
-      if lesson.surveys.length > 0
-        lesson[:avg_rating] = (sum_ratings.to_f / lesson.surveys.length).round(1)
-      else
-        lesson[:avg_rating] = 0
-      end
-      lesson
-    end
+    @lessons = @program.lessons.order(:date)
+
     if !current_user.producer? && !current_user.programs.include?(@program)
       flash[:alert] = "You do not have access to this program"
       redirect_to programs_path

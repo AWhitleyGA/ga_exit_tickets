@@ -1,6 +1,9 @@
 module ApplicationHelper
 
   def color_of input, options = {}
+    if !input
+      return "style='background-color: rgba(0, 0, 0, 0.05);'".html_safe
+    end
     # These are options that can optionally be passed in when the method is called
     greenest_possible_input = options[:green]
     reddest_possible_input  = options[:red]

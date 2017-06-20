@@ -1,4 +1,4 @@
-<%= link_to program_lesson_survey_path(@program.name, @lesson.number, survey), class: "survey-row" do %>
+<%= link_to program_lesson_survey_path(@program.name, @lesson.number, survey, student: survey.respondent_name), class: "survey-row" do %>
   <div><%= survey.respondent_name %></div>
   <div <%= color_of(survey.lo_rating) %>><%= survey.lo_rating %></div>
   <div <%= color_of(survey.delivery_rating) %>><%= survey.delivery_rating %></div>

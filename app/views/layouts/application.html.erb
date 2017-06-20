@@ -29,7 +29,7 @@
           <%= link_to "Lesson: #{@lesson.name}", program_lesson_path(@program.name, @lesson.number) %>
         <% end %>
         <% if @survey && @survey.id %>
-          <%= link_to "Survey: #{@survey.respondent_name}", program_lesson_survey_path(@program.name, @lesson.number, @survey) %>
+          <%= link_to "Survey: #{@survey.respondent_name}", program_lesson_survey_path(@program.name, @lesson.number, @survey, student: @survey.respondent_name) %>
         <% end %>
       <% else %>
         <% if @program && @program.id %>

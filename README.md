@@ -1,16 +1,7 @@
 # GA Exit Tickets
 An application for collecting and analyzing student surveys that provides course producers an efficient way to track student satisfaction and instructor performance across many concurrently running courses
 
-<div style="display: flex;">
-  <a href="dashboard.png" style="margin: 10px;">
-    <img src="dashboard.png" style="width: 400px">
-    <blockquote>Lesson Tracking</blockquote>
-  </a>
-  <a href="lesson-view.png" style="margin: 10px;">
-    <img src="lesson-view.png" style="width: 400px">
-    <blockquote>Survey Collection</blockquote>
-  </a>
-</div>
+![preview](lesson-view.png)
 
 ## Current Features
 - Users can create, access, and manage their own courses
